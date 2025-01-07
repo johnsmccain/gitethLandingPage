@@ -5,7 +5,7 @@ import githubIcon from "../../../assets/icons/githubIcon.png"
 import ethicon from "../../../assets/icons/ethIcon.svg"
 import heroBg from "../../../assets/images/Background For Hero.png"
 // import CustomText from "./CustomText";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import CustomText from "@/components/Specific/landingPage/CustomText";
 
 /**
@@ -16,7 +16,7 @@ import CustomText from "@/components/Specific/landingPage/CustomText";
  * The component also includes a few decorative elements to make the page more visually appealing.
  */
 export default function Hero() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
 
     <section className="relative ">
@@ -28,7 +28,7 @@ export default function Hero() {
             Join our thriving community of developers and contribute to the future of Ethereum ecosystem
           </p>
           <div className="flex justify-center max-sm:gap-6 gap-4 items-center  max-sm:flex-col max-sm:py-7 sm:w-[375px] mx-auto">
-            <CustomBtn text="Login with GIthub" icon={githubIcon} colored="yes"  style={"w-full"} onClick={() => {navigate("/onboarding")}}/>
+            <CustomBtn text="Login with GIthub" icon={githubIcon} colored="yes"  style={"w-full"} />
             <CustomBtn text="Explore Projects" icon={ethicon}  style={"w-full"}/>
           </div>
         </div>

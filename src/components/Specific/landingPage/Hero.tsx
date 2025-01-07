@@ -5,7 +5,8 @@ import githubIcon from "../../../assets/icons/githubIcon.png";
 import ethicon from "../../../assets/icons/ethIcon.svg";
 import heroBg from "../../../assets/images/Background For Hero.png";
 import CustomText from "./CustomText";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Modal } from "@/components/Modal";
 
 /**
  * The Hero component is the main section of the landing page. It contains a title, a description, and a call to action button to login with Github.
@@ -15,7 +16,9 @@ import { useNavigate } from "react-router-dom";
  * The component also includes a few decorative elements to make the page more visually appealing.
  */
 export default function Hero() {
-  const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false); // Initial active div
+    const onClose = () => setIsOpen(false);
+    const onOpen = () => setIsOpen(true);
   return (
     <section className="relative ">
       <div className=" mx-auto max-w-7xl max-sm:py-10 px-4 sm:py-24 mb-32">
@@ -37,7 +40,7 @@ export default function Hero() {
               colored="yes"
               style={"w-full z-10"}
               onClick={() => {
-                navigate("/onboarding");
+                onOpen();
               }}
             />
             <CustomBtn
@@ -45,7 +48,7 @@ export default function Hero() {
               icon={ethicon}
               style={" w-full z-10"}
               onClick={() => {
-                navigate("/projects");
+                onOpen();
               }}
             />
           </div>
@@ -72,6 +75,9 @@ export default function Hero() {
         <div className="h-64 w-64 rounded-full bg-purple-500/20 blur-3xl"></div>
         </div> */}
       </div>
+          <Modal isOpen={isOpen} onClose={onClose} >
+            <div className="text-black text-xl">Coming soon!</div>
+          </Modal>
     </section>
   );
 }

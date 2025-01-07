@@ -2,22 +2,28 @@ import { Navbar } from 'flowbite-react';
 import { useState } from 'react';
 import CustomBtn from '../Common/CustomBtn';
 import githubIcon from "../../assets/icons/githubIcon.png";
+import { Modal } from '../Modal';
 
 export default function Navigation() {
   const [activediv, setActivediv] = useState('Home'); // Initial active div
+  const [isOpen, setIsOpen] = useState(false); // Initial active div
+  const onClose = () => setIsOpen(false);
+  const onOpen = () => setIsOpen(true);
 
-  return (
+
+  return (<div className="">
+
     <Navbar className="fixed w-full z-50 bg-opacity-90 dark:bg-opacity-5 backdrop-blur-sm py-6 px-5 m-0">
       <Navbar.Brand href="/">
         <img src="/EthOpenSource.svg" alt="logo" className='w-48 md:w-44' />
       </Navbar.Brand>
       <div className="flex md:order-2 gap-2">
 
-        
-          <div className="relative">
-            <CustomBtn icon={githubIcon} text={`coming soon`} colored="yes" style="hidden md:flex"  />
-          </div>
-        
+
+        <div className="relative">
+          <CustomBtn icon={githubIcon} text={`Connect with github`} colored="yes" style="hidden md:flex" />
+        </div>
+
         {/* <DarkThemeToggle /> */}
         <Navbar.Toggle className='w-8 h-8 flex items-center justify-center ' />
       </div>
@@ -31,11 +37,11 @@ export default function Navigation() {
         >
           <div
             // active={activediv === 'Home'}
-            onClick={() => setActivediv('Home')}
+            onClick={() => {setActivediv('Home'); onOpen()}}
             className={`${activediv === 'Home' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Home
           </div>
         </div>
         <div
@@ -43,11 +49,11 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Projects')}
+            onClick={() => {setActivediv('Projects'); onOpen()}}
             className={`${activediv === 'Projects' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Projects
           </div>
         </div>
         <div
@@ -55,11 +61,11 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Learn')}
+            onClick={() => {setActivediv('Learn'); onOpen()}}
             className={`${activediv === 'Learn' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Learn
           </div>
         </div>
         <div
@@ -67,11 +73,11 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Contributors')}
+            onClick={() => {setActivediv('Contributors'); onOpen()}}
             className={`${activediv === 'Contributors' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Contributors
           </div>
         </div>
         <div
@@ -79,11 +85,11 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Applications')}
+            onClick={() => {setActivediv('Applications'); onOpen()}}
             className={`${activediv === 'Applications' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Applications
           </div>
         </div>
         <div
@@ -91,11 +97,11 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Rewards')}
+            onClick={() => {setActivediv('Rewards'); onOpen()}}
             className={`${activediv === 'Rewards' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Rewards
           </div>
         </div>
         <div
@@ -103,15 +109,19 @@ export default function Navigation() {
             }`}
         >
           <div
-            onClick={() => setActivediv('Community')}
+            onClick={() => {setActivediv('Community'); onOpen()}}
             className={`${activediv === 'Community' ? ' bg-gray-800 rounded-3xl' : ''
               }`}
           >
-            coming soon
+            Community
           </div>
         </div>
       </Navbar.Collapse>
 
     </Navbar>
+    <Modal isOpen={isOpen} onClose={onClose} >
+      <div className="text-black text-xl">Coming soon!</div>
+    </Modal>
+  </div>
   );
 }
